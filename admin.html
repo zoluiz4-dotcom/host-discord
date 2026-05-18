@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="card">
+        <h1>Painel Admin</h1>
+
+        <h2>Usuarios</h2>
+
+        {% for user in users %}
+            <p>{{ user.username }} - {{ user.plano }}</p>
+        {% endfor %}
+
+        <h2>Projetos</h2>
+
+        {% for projeto in projetos %}
+            <p>{{ projeto.nome }} - {{ projeto.status }}</p>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+</body>
+</html>
