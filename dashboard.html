@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav>
+    <h2>PAINEL HOST</h2>
+</nav>
+
+<div class="container">
+
+    <a href="/upload">
+        <button>Enviar ZIP</button>
+    </a>
+
+    <a href="/logout">
+        <button>Sair</button>
+    </a>
+
+    <br><br>
+
+    {% for projeto in projetos %}
+
+    <div class="card">
+
+        <h2>{{ projeto.nome }}</h2>
+
+        <p>Status: {{ projeto.status }}</p>
+
+        <p>Criado: {{ projeto.criado }}</p>
+
+        <a href="/start/{{ projeto.id }}">
+            <button>Iniciar</button>
+        </a>
+
+        <a href="/stop/{{ projeto.id }}">
+            <button>Parar</button>
+        </a>
+
+        <a href="/logs/{{ projeto.id }}">
+            <button>Logs</button>
+        </a>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+</body>
+</html>
